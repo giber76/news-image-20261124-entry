@@ -1,6 +1,6 @@
 // news-image-20261124 entry (Node 22, standard library only): the
 // image is the entry.png beside this file, drawn by draw.py from the
-// 44 verified stories of Tuesday 24 November 2026, and this program
+// 46 verified stories of Tuesday 24 November 2026, and this program
 // copies it to /output/entry.png. The gate takes a whole PNG of at
 // most 1 MiB and 1024 by 1024 pixels, and the judge sees exactly the
 // bytes copied.
