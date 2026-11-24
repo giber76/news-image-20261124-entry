@@ -1,6 +1,14 @@
-# STORIES.md — Tuesday 24 November 2026 (v3)
+# STORIES.md — Tuesday 24 November 2026 (v4 — 35 of 46 used)
 
-Every story on the front page, with its region and status tag. 46 stories: 1 hero lead, 2 secondary leads, 8 feature cards, 35 in the ALSO list. All events happened or were first reported on Tuesday 24 November 2026, any time zone, except the Banten factory fire itself (Saturday 21 Nov), which appears only for its 24 Nov toll update — see the DATE CHECK box on the page.
+The 46 verified stories for the day. v4 uses 35 of them: 3 features
+(Nvidia, COP31, Hormuz), 12 cards (Nepal quake, ICJ verdict, Gaza
+strikes, NATO space, Zaporizhzhia, Banten toll, measles, Sanofi, Seoul
+cheats, Mexico trial, UN women, India ODI) and 20 brief items; the 11
+cut for space are listed at the end. The per-story groupings below are
+the v3 source organisation. All events happened or were first reported
+on Tuesday 24 November 2026, any time zone, except the Banten factory
+fire itself (Saturday 21 Nov), which appears only for its 24 Nov toll
+update — see the DATE CHECK box on the page.
 
 Sources checked against: Reuters, AP, Just Security Early Edition, The Daily Edition, Principia, Horizon, EMSC/NCS, Xinhua, CAS, UN, WHO, ICJ, FDA.
 
@@ -57,3 +65,16 @@ Sources checked against: Reuters, AP, Just Security Early Edition, The Daily Edi
 44. (Latin America) Gremio beat Santos 2-0 in the Brasileirao
 45. (Asia) Persija Jakarta thrash Sumsel United 7-0
 46. (Africa) Pyramids stun Al Ahly 2-0 in the Egyptian league
+
+## Cut for space in v4 (11)
+- Ukraine says drones sank a Russian corvette off Libya
+- Fighting in Ituri traps Ebola responders, WHO says
+- CAS restores Senegal as Africa Cup of Nations champions
+- South Africa bowl Bangladesh out for 91 in Centurion Test
+- Arm extends chief Rene Haas's tenure to 2033
+- Most distant quasar found, 630m years after Big Bang
+- Brentford 4-0 Everton; Monza 3-0 Fiorentina
+- Brazil lose 3-2 to Japan; calls for Ancelotti to resign
+- Gremio beat Santos 2-0 in the Brasileirao
+- Persija Jakarta thrash Sumsel United 7-0
+- Pyramids stun Al Ahly 2-0 in the Egyptian league
