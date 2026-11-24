@@ -513,27 +513,29 @@ def draw_top_strip(d):
              f_sans_b(11), INK)
 
 def draw_title(d):
-    draw_tracked(d, W // 2, 14, "THE WORLD IN ONE DAY", f_sans_b(48), INK, 950, tracking=20)
-    draw_tracked(d, W // 2, 54, "TUESDAY 24 NOVEMBER 2026", f_sans_b(20), RED, 700, tracking=4)
-    centered(d, W // 2, 78,
+    # masthead breathing room (ink-to-ink): strip->title 12px, title->date
+    # 10px, date->ticker 10px. The red date line used to sit on the title.
+    draw_tracked(d, W // 2, 16, "THE WORLD IN ONE DAY", f_sans_b(48), INK, 950, tracking=20)
+    draw_tracked(d, W // 2, 68, "TUESDAY 24 NOVEMBER 2026", f_sans_b(20), RED, 700, tracking=4)
+    centered(d, W // 2, 94,
              "NVIDIA SOARS 30%  \u2014  COP31 COLLAPSES  \u2014  TANKERS HIT IN HORMUZ  \u2014  ICJ: MYANMAR GENOCIDE",
              f_sans_b(12), RED)
 
 def draw_numbers(d):
-    d.line([(MARGIN, 96), (W - MARGIN, 96)], fill=LINE, width=2)
-    d.text((MARGIN, 100), "THE DAY IN NUMBERS", font=f_sans_b(11), fill=RED)
+    d.line([(MARGIN, 112), (W - MARGIN, 112)], fill=LINE, width=2)
+    d.text((MARGIN, 116), "THE DAY IN NUMBERS", font=f_sans_b(11), fill=RED)
     col_w = (W - 2 * MARGIN) // 6
     for i, (num, cap) in enumerate(NUMBERS):
         cx = MARGIN + col_w * i + col_w // 2
         if i:
-            d.line([(MARGIN + col_w * i, 104), (MARGIN + col_w * i, 158)], fill=(200, 200, 200), width=1)
-        centered(d, cx, 112, num, f_sans_b(30), INK)
+            d.line([(MARGIN + col_w * i, 120), (MARGIN + col_w * i, 174)], fill=(200, 200, 200), width=1)
+        centered(d, cx, 128, num, f_sans_b(30), INK)
         lines = wrap_text(d, cap, f_sans(9), col_w - 12)
-        ly = 146
+        ly = 162
         for ln in lines[:2]:
             centered(d, cx, ly, ln, f_sans(9), MUTED)
             ly += 11
-    d.line([(MARGIN, 168), (W - MARGIN, 168)], fill=LINE, width=1)
+    d.line([(MARGIN, 184), (W - MARGIN, 184)], fill=LINE, width=1)
 
 def draw_regions(d):
     total = sum(c for _, c, _ in REGIONS)
@@ -541,20 +543,20 @@ def draw_regions(d):
     x = MARGIN
     for _, count, col in REGIONS:
         w = bar_w * count // total
-        d.rectangle([x, 172, x + w, 182], fill=col)
+        d.rectangle([x, 188, x + w, 198], fill=col)
         x += w
     counts = "  \u00b7  ".join(f"{label} {count}" for label, count, _ in REGIONS)
-    centered(d, W // 2, 184, counts, f_sans_b(11), INK)
+    centered(d, W // 2, 200, counts, f_sans_b(11), INK)
 
 def draw_timeline(d):
-    d.text((MARGIN, 200), "THE DAY IN UTC", font=f_sans_b(11), fill=RED)
-    d.line([(40, 226), (984, 226)], fill=LINE, width=2)
+    d.text((MARGIN, 216), "THE DAY IN UTC", font=f_sans_b(11), fill=RED)
+    d.line([(40, 242), (984, 242)], fill=LINE, width=2)
     xs = [150, 310, 470, 630, 790, 950]
     for (tm, ev), px in zip(TIMELINE, xs):
-        d.ellipse([px - 5, 221, px + 5, 231], fill=RED)
+        d.ellipse([px - 5, 237, px + 5, 247], fill=RED)
         if tm:
-            centered(d, px, 206, tm, f_sans_b(11), INK)
-        centered(d, px, 232, ev, f_sans_b(10), INK)
+            centered(d, px, 222, tm, f_sans_b(11), INK)
+        centered(d, px, 248, ev, f_sans_b(10), INK)
 
 def draw_feature(img, d, x, y, w, feat):
     num, region, headline, fact, tag, tag_bg, source, art_key = feat
@@ -590,13 +592,13 @@ def draw_card(d, x, y, w, card):
     d.text((x + w - 8 - sw, tag_y + 3), source, font=f_sans(8), fill=MUTED)
 
 def draw_map_brief(d):
-    d.text((MARGIN, 804), "WHERE IT HAPPENED", font=f_sans_b(13), fill=INK)
-    d.text((410, 804), "ALSO \u2014 IN BRIEF", font=f_sans_b(13), fill=INK)
-    draw_map(d, 20, 820)
+    d.text((MARGIN, 808), "WHERE IT HAPPENED", font=f_sans_b(13), fill=INK)
+    d.text((410, 808), "ALSO \u2014 IN BRIEF", font=f_sans_b(13), fill=INK)
+    draw_map(d, 20, 824)
     for i, (num, title) in enumerate(BRIEF):
         col, row = divmod(i, 10)
         cx = 410 + col * 300
-        cy = 820 + row * 11.2
+        cy = 824 + row * 11.2
         draw_single(d, f"{num}. {title}", f_sans_b(9), 286, (cx, cy), INK)
 
 def draw_datecheck(d):
@@ -663,11 +665,11 @@ def build():
     fw = (W - 2 * MARGIN - 2 * 8) // 3
     for i, feat in enumerate(FEATURES):
         x = MARGIN + i * (fw + 8)
-        draw_feature(img, d, x, 248, fw, feat)
+        draw_feature(img, d, x, 264, fw, feat)
     for i, card in enumerate(CARDS):
         col, row = i % 3, i // 3
         x = MARGIN + col * (fw + 8)
-        y = 500 + row * 74
+        y = 510 + row * 74
         draw_card(d, x, y, fw, card)
     draw_map_brief(d)
     draw_datecheck(d)
