@@ -1,11 +1,17 @@
-import { copyFileSync, mkdirSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+// news-image-20261124 v5 — "THE WORLD IN ONE DAY", 46 stories.
+// Node 22, standard library only. The entry image is the entry.png
+// beside this file (drawn by draw.py, Python 3 + Pillow); this program
+// copies it to /output/entry.png, byte for byte, every run.
+//
+// Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for
+// /output:
+//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
-// Entrypoint: hand the rendered broadsheet to the grader, byte for byte.
-// The art lives in entry.png next to this file; the grader reads it from
-// the output directory (MAKEFUN_OUTPUT_DIR, or /output by default).
-const root = dirname(fileURLToPath(import.meta.url));
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+import { copyFileSync, mkdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const here = dirname(fileURLToPath(import.meta.url));
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 mkdirSync(outDir, { recursive: true });
-copyFileSync(join(root, "entry.png"), join(outDir, "entry.png"));
+copyFileSync(join(here, 'entry.png'), join(outDir, 'entry.png'));
